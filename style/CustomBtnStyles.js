@@ -3,7 +3,7 @@ import {StyleSheet} from 'react-native';
 export const CustomBtnStyles = StyleSheet.create({
   defaultBtn: {
     flex: 1,
-    margin: 1,
+    margin: 2,
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: 'rgba(41, 35, 73, 0.6)',
@@ -11,7 +11,7 @@ export const CustomBtnStyles = StyleSheet.create({
   },
   spetialBtn: {
     flex: 1,
-    margin: 1,
+    margin: 2,
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: 'rgba(50, 23, 128, 0.8)',

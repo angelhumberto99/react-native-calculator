@@ -17,7 +17,9 @@ export const CalculatorStyle = StyleSheet.create({
   inputContainer: {
     flex: 8,
     backgroundColor: '#0d0829',
-    borderRadius: 5,
+    borderTopRightRadius: 5,
+    borderTopLeftRadius: 5,
+    padding: 1,
   },
   btnRow: {
     flexDirection: 'row',
