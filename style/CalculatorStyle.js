@@ -19,10 +19,20 @@ export const CalculatorStyle = StyleSheet.create({
     backgroundColor: '#0d0829',
     borderTopRightRadius: 5,
     borderTopLeftRadius: 5,
-    padding: 1,
   },
   btnRow: {
     flexDirection: 'row',
     flex: 1,
+  },
+  numPad: {
+    flex: 3,
+  },
+  operPad: {
+    flex: 1,
+    paddingBottom: 1,
+  },
+  btnContainer: {
+    flex: 1,
+    flexDirection: 'row',
   },
 });

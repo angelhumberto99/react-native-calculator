@@ -4,11 +4,9 @@ import {CustomBtnStyles as styles} from '../style/CustomBtnStyles';
 
 class CustomBtn extends Component {
   render() {
-    const {val, handler, spetialKey} = this.props;
+    const {val, handler, keyStyle} = this.props;
     return (
-      <TouchableOpacity
-        style={spetialKey ? styles.spetialBtn : styles.defaultBtn}
-        onPress={() => handler(val)}>
+      <TouchableOpacity style={keyStyle} onPress={() => handler(val)}>
         <Text style={styles.btnText}>{val}</Text>
       </TouchableOpacity>
     );
