@@ -25,23 +25,34 @@ class calculator extends Component {
     let lastInput = this.state.screen[length - 1];
 
     // borra el estado
-    if (e === 'AC') this.setState({screen: ''});
+    if (e === 'AC') {
+      this.setState({period: false});
+      this.setState({screen: ''});
+    }
     // elimina la última entrada
-    else if (e === 'DELETE')
+    else if (e === 'DELETE') {
+      if (lastInput === '.') this.setState({period: false});
       this.setState({screen: this.state.screen.slice(0, -1)});
+    }
     // calcula el resultado
     else if (e === '=') {
-      if (length > 0) {
-        let res = this.state.screen;
-
-        if (length === 1 && res.match(/[\-|+]/)) res = '';
-        else if (lastInput.match(/[\-|/|+|*]/)) {
-          res = res.slice(0, -1);
-          if (res[res.length - 1].match(/[\-|/|+|*]/)) res = res.slice(0, -1);
-          res = String(eval(res));
-        } else res = String(eval(res));
-        if (res === '0') res = '';
-        this.setState({screen: res});
+      try {
+        if (length > 0) {
+          let res = this.state.screen;
+          if (length === 1 && res.match(/[\-|+]/)) res = '';
+          else if (lastInput.match(/[\-|/|+|*|\.]/)) {
+            do {
+              if (res[res.length - 1] === '.') this.setState({period: false});
+              res = res.slice(0, -1);
+            } while (res[res.length - 1].match(/[\-|/|+|*|\.]/));
+            res = String(eval(res));
+          } else res = String(eval(res));
+          if (res === '0') res = '';
+          this.setState({screen: res});
+          if (res.indexOf('.')) this.setState({period: true});
+        }
+      } catch {
+        this.setState({screen: ''});
       }
     }
 
